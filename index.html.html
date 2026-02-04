@@ -1,0 +1,1471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome | Makerere University</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&family=Metropolis:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --green: #0a9444;
+      --dark-green: #067536;
+      --yellow: #f5c542;
+      --red: #c41212;
+      --black: #111;
+      --gray: #f5f5f5;
+      --font-main: 'Metropolis', sans-serif;
+      --font-alt: 'Lora', serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: var(--font-main); background: #fff; color: #111; }
+
+    a { text-decoration: none; color: inherit; }
+    ul { list-style: none; }
+
+    /* ================= HEADER ================= */
+    header { width: 100%; position: sticky; top: 0; z-index: 1000; }
+
+    .top-nav {
+      background: var(--green);
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .brand img {
+      width: 200px;
+      height: auto;
+    }
+
+    nav ul {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    nav li { position: relative; cursor: pointer; }
+
+    nav li:hover .dropdown,
+    nav li:hover .mega {
+      display: block;
+    }
+
+    .donate-btn {
+      background: var(--yellow);
+      color: #000;
+      padding: 8px 18px;
+      border-radius: 6px;
+      font-weight: 600;
+    }
+
+    .search-icon {
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+   .dropdown-content {
+    position: absolute;
+    right: -240%;
+    top: 100%;
+    background: #fff;
+    color: #111;
+    width: 800px;
+    display: none;
+    padding: 10px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    z-index: 1000;
+}
+
+
+.dropdown:hover .dropdown-content {
+    display: flex;
+}
+.column {
+    flex: 1;
+    padding: 0 20px;
+}
+
+.column h4 {
+    margin-bottom: 15px;
+    color: #b30000;
+    font-size: 18px;
+}
+
+.column a {
+    display: block;
+    padding: 6px 0;
+    color: #333;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.column a:hover {
+    color: #171616;
+    cursor: pointer;
+    text-decoration:underline red;
+
+}
+
+
+    /* Mega Menu */
+    .mega {
+      position: absolute;
+      top: 42px;
+      left: -200px;
+      width: 900px;
+      background: #fff;
+      color: #111;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      display: none;
+      padding: 30px;
+      display: none;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+    }
+
+    .mega h4 {
+      font-size: 15px;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+
+    .mega ul li {
+      font-size: 14px;
+      margin-bottom: 8px;
+    }
+
+    .mega ul li:hover { text-decoration: underline; }
+
+    /* ================= SEARCH OVERLAY ================= */
+    .search-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 2000;
+    }
+
+    .search-box {
+      background: #fff;
+      padding: 30px;
+      width: 60%;
+      max-width: 700px;
+      border-radius: 8px;
+      display: flex;
+      gap: 12px;
+    }
+
+    .search-box input {
+      flex: 1;
+      padding: 14px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+
+    .search-box button {
+      padding: 14px 24px;
+      background: var(--green);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    /* ================= HERO ================= */
+    .hero {
+      position: relative;
+      height: 78vh;
+      overflow: hidden;
+    }
+
+    .hero img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      z-index: -1;
+      animation: fadein 20s infinite;
+        }
+        @keyframes fadein {
+          0% {opacity: 0;}
+          10% {opacity: 1;}
+          30% {opacity: 1;}
+          40% {opacity: 0;}
+          50% {opacity: 0;}
+          60% {opacity: 1;}
+          80% {opacity: 1;}
+          90% {opacity: 0;}
+          100% {opacity: 0;}
+          
+        }
+
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, rgba(0,0,0,0.75) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      left: 550px; 
+      padding: 0 80px;
+      max-width: 900px;
+      color: #fff;
+      
+    }
+
+.box{
+            position: absolute;
+           left: 80px;
+            background-color: rgb(2, 49, 2);
+            opacity: 0.6;
+            padding: 70px;
+            width: 700px;
+           
+
+    }
+    .box h2{
+        font-weight: 1000px;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+    .box p{
+        color: white;
+        font-weight:700px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    }
+    .read a {
+  display: inline-block;
+  padding: 10px 20px;
+  border: 2px solid #ffd400;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
+        .read :hover {
+  background: #ffd400;
+  color: #000;
+        }
+
+    .hero-content h1 {
+      font-family: var(--font-alt);
+      font-size: 46px;
+      font-weight: 700;
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      margin-bottom: 22px;
+      max-width: 650px;
+    }
+
+    .hero-content .cta {
+      display: inline-block;
+      background: var(--green);
+      color: #fff;
+      padding: 14px 26px;
+      border-radius: 6px;
+      font-weight: 600;
+      width: fit-content;
+    }
+
+    /* ================= QUICK ACCESS ================= */
+    .quick-access {
+      background: #fff;
+      margin-top: -90px;
+      position: relative;
+      z-index: 10;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      overflow: hidden;
+    }
+
+    .qa-left {
+      padding: 40px;
+    }
+
+    .qa-bubble {
+      background: #111;
+      color: #fff;
+      padding: 16px 22px;
+      border-radius: 14px;
+      font-size: 14px;
+      max-width: 380px;
+      margin-bottom: 24px;
+      position: relative;
+    }
+
+    .qa-bubble::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 24px;
+      border-width: 10px 10px 0 10px;
+      border-style: solid;
+      border-color: #111 transparent transparent transparent;
+    }
+
+    .qa-left h2 {
+      font-family: var(--font-alt);
+      font-size: 28px;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .qa-left select {
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      margin-bottom: 18px;
+      border: none;
+      border-bottom: 2px solid #ccc;
+      outline: none;
+    }
+
+    .qa-left button {
+      background: #111;
+      color: #fff;
+      padding: 14px 26px;
+      border: none;
+      border-radius: 6px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .qa-left p {
+      margin-top: 16px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .qa-right {
+      background: #f5f5f5;
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .qa-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-radius: 60px;
+      padding: 18px 26px;
+      color: #fff;
+      font-weight: 600;
+      font-size: 20px;
+    }
+
+    .qa-card.join { background: var(--yellow); color: #000; }
+    .qa-card.visit { background: var(--green); }
+    .qa-card.give { background: var(--red); }
+
+    .qa-card img {
+      width: 120px;
+      height: 60px;
+      object-fit: cover;
+      border-radius: 40px;
+      margin-left: 20px;
+    }
+
+    /* ================= NEWS & EVENTS ================= */
+    .section {
+      padding: 80px 60px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .section-header h2 {
+      font-family: var(--font-alt);
+      font-size: 36px;
+      font-weight: 700;
+    }
+
+    .section-header a {
+      font-weight: 600;
+      color: var(--green);
+    }
+
+    .news-grid {
+      display: grid;
+  gap: 15px;
+    }
+
+    .news-card {
+      background: #fff;
+      border-radius: 12px;
+      /* overflow: hidden; */
+      /* margin-right: 10px; */
+      display: flex;
+      height: 90vh;
+      justify-content: space-evenly;
+      gap: 10px;
+      
+    
+    }
+
+    /* .news-card img {
+      width: 50%;
+      border-radius: 5px;
+
+
+    }
+.news-card img {
+      width: 50%;
+      border-radius: 5px;
+      height: 290px;
+      object-fit: cover;
+      margin-right: 10px;
+    } */
+    
+    .news-content1 {
+      padding: 20px;
+      background-image: url('Makerere-CHS');
+      background-size: cover;
+      width: 90%;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      background-position: center;
+      align-content: end;
+
+    }
+    .news-content1 :hover{
+      background-color: red;
+      opacity: 0.8;
+      color: white;
+      border-radius: 5px;
+
+
+    }
+    .news-content2 {
+      padding: 20px;
+      background-image: url('Makerere-SPH');
+      background-size: cover;
+      width: 100%;
+      color: #fff;
+      font-family: Arial, Helvetica, sans-serif;
+      background-position: center;
+      align-content: end;
+    }
+    .news-content2 :hover{
+      background-color: red;
+      opacity: 0.8;
+      color: white;
+      border-radius: 5px;
+    }
+
+    /*.news-content h2 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-right:10px;
+      color: #f2f2f2;
+    }
+
+    .news-content p {
+      font-size: 14px;
+      color: #fbf6f6;
+      margin-bottom: 14px;
+    }*/
+
+    .news-content a {
+      color: var(--green);
+      font-weight: 600;
+      font-size: 14px;
+    }
+    /* Campus Stories Section */
+    .campus-stories {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h3 {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--mak-green);
+            margin-bottom: 15px;
+        }
+        
+        .stories-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+        
+        .story-card {
+            height: 300px;
+            border-radius: 8px;
+            overflow: hidden;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .story-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 25px;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+            color: var(--white);
+        }
+        
+        .story-date {
+            font-size: 14px;
+            opacity: 0.8;
+            margin-bottom: 10px;
+        }
+        
+        .story-title {
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.4;
+        }
+        
+        /* News Articles */
+        .news-articles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .article-card {
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .article-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .article-content {
+            padding: 25px;
+        }
+        
+        .article-date {
+            font-size: 14px;
+            color: var(--text-light);
+            margin-bottom: 10px;
+        }
+        
+        .article-title {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 15px;
+        }
+        
+        .read-more {
+            color: var(--mak-green);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* Events Section */
+        .events-section {
+            padding: 80px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .events-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+        }
+        
+        .main-event {
+            background-color: var(--white);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            display: flex;
+        }
+        
+        .main-event-img {
+            width: 50%;
+            background-size: cover;
+            background-position: center;
+            min-height: 300px;
+        }
+        
+        .main-event-content {
+            width: 50%;
+            padding: 30px;
+        }
+        
+        .event-date {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .event-day {
+            font-size: 36px;
+            font-weight: 700;
+            color: var(--mak-green);
+        }
+        
+        .event-month {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--mak-green);
+        }
+        
+        .event-title {
+            font-size: 22px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        
+        .event-list {
+            background-color: var(--white);
+            border-radius: 8px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+        }
+        
+        .event-item {
+            padding: 15px 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .event-item:last-child {
+            border-bottom: none;
+        }
+        
+        /* Research Section */
+        .research-section {
+            padding: 80px 0;
+            
+        }
+        
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .research-card {
+            padding: 25px;
+            border-radius: 8px;
+            border: 1px solid #777575;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        .research-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .research-category {
+            display: inline-block;
+            background-color: #e33314;
+            color: var(--mak-green);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+        
+        .research-title {
+            font-size: 18px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin-bottom: 15px;
+            
+        }
+        
+        /* Footer */
+        footer {
+            background-color:rgb(6, 6, 6);
+            display: flex;
+            opacity: 0.5;
+            color: white;
+            width: 109%;
+            padding: 90px 0 40px;
+        }
+        
+        .footer-top {
+            margin-bottom: 50px;
+        }
+        
+        .footer-column h6 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 25px;
+            color: white;
+            display: flex;
+        }
+        
+        .footer-links {
+            margin-bottom: 30px;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: #bbb;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: var(--white);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background-color: #333;
+            border-radius: 50%;
+            color: var(--white);
+            transition: background-color 0.3s ease;
+        }
+        
+        .social-icons a:hover {
+            background-color: var(--mak-green);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .copyright {
+            color: #bbb;
+        }
+        
+        .footer-nav {
+            display: flex;
+            gap: 25px;
+        }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background-color: var(--mak-green);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            cursor: pointer;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 999;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease;
+        }
+        
+        .scroll-top:hover {
+            background-color: #004d00;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .hero-heading {
+                font-size: 32px;
+            }
+            
+            .stories-grid,
+            .news-articles,
+            .research-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .events-wrapper {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-event {
+                flex-direction: column;
+            }
+            
+            .main-event-img,
+            .main-event-content {
+                width: 100%;
+            }
+            
+            .quick-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-toggler {
+                display: block;
+            }
+            
+            .main-nav {
+                position: fixed;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: var(--white);
+                padding: 20px;
+                box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+                transform: translateY(-100%);
+                opacity: 0;
+                visibility: hidden;
+                transition: all 0.3s ease;
+            }
+            
+            .main-nav.active {
+                transform: translateY(0);
+                opacity: 1;
+                visibility: visible;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+                gap: 0;
+            }
+            
+            .nav-link {
+                padding: 15px 0;
+                border-bottom: 1px solid #eee;
+            }
+            
+            .hero-slider {
+                height: 400px;
+            }
+            
+            .stories-grid,
+            .news-articles,
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer{
+              background-color: black;
+              opacity: 0.5;
+            }
+            
+            .footer-column {
+                margin-bottom: 40px;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                gap: 20px;
+                text-align: center;
+            }
+            
+            .footer-nav {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .hero-heading {
+                font-size: 28px;
+            }
+            
+            .hero-sub-heading {
+                font-size: 16px;
+            }
+            
+            .section-title h3 {
+                font-size: 28px;
+            }
+        }
+    
+  </style>
+</head>
+<body>
+
+  <!-- ================= SEARCH OVERLAY ================= -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-box">
+      <input type="text" placeholder="Search by keyword or phrase..." />
+      <button>Search</button>
+    </div>
+  </div>
+
+  <!-- ================= HEADER ================= -->
+  <header>
+    <div class="top-nav">
+      <div class="brand">
+        <img src="rogo.png" alt="Makerere Logo" style="mix-blend-mode: multiply;"/>
+      </div>
+
+      <nav class="navbar">
+        <ul class="nav-menu">
+    <li><a href="#">HOME</a></li>
+    
+        <li class="dropdown">
+            <a href="#">STUDY AT MAK</a>
+            <div class="dropdown-content">
+                <div class="column">
+                    <h4>Join / Admissions</h4>
+                    <a href="#">How To Apply</a>
+                    <a href="#">Recent Announcements</a>
+                    <a href="#">Registration</a>
+                    <a href="#">Weighting System</a>
+                    <a href="#">Cut-Off Points</a>
+                    <a href="#">Fees & Payment Structure</a>
+                    <a href="#">Scholarships</a>
+                </div>
+                <div class="column">
+                    <h4>Academics</h4>
+                    <a href="#">Student Loan Schemes</a>
+                    <a href="#">Courses & Programs</a>
+                    <a href="#">E-Learning</a>
+                    <a href="#">Academic Units</a>
+                    <a href="#">Academic Registrar</a>
+                    <a href="#">Affiliated Institutions</a>
+                </div>
+            </div>
+        </li>
+        
+        <li class="dropdown">
+            <a href="#">STUDENTS</a>
+            <div class="dropdown-content">
+                <div class="column">
+                    <h4>prospective students</h4>
+                    <a href="#">ungraduated prospectures</a>
+                    <a href="#">international students</a>
+                    <a href="#">accomodation & student housing</a>
+                    <a href="#">visit makerere</a>
+                    <a href="#">coursese & programsa</a>
+                    <a href="#">careeer development</a>
+                    <a href="#">graduate prospectures</a>
+                    <a href="#">students guides</a>
+                    <a href="#">cumpus seculity</a>
+                    <a href="#">catering services</a>
+                    <a href="#">health & medical access</a>
+                </div>
+                <div class="column">
+                    <h4>Continueing students</h4>
+                    <a href="#">timetables</a>
+                    <a href="#">academic calenders</a>
+                    <a href="#">registrations</a>
+                    <a href="#">all upcoming events</a>
+                    <a href="#">examinations</a>
+                    <a href="#">gradings</a>
+                    <a href="#">graduation requirements</a>
+                    <a href="#">graduation highlights</a> 
+                    <a href="#">religions &spirituality</a>
+                        <a href="#">sports & recreations</a>
+                        <a href="#">accomodations & students</a>
+                        <a href="#">hostings</a>
+                        <a href="#">councoling & guaidences</a>
+
+                </div>
+            </div>
+            </li>
+       
+        <li class="dropdown">
+            <a href="#">RESEARCH</a>
+            <div class="dropdown-content">
+                <div class="column">
+                    <h4>research and innovations</h4>
+                    <a href="#">resaerch over views</a>
+                    <a href="#">resaerchs instututes and centers</a>
+                    <a href="#">reserch fundings</a>
+                    <a href="#">research agendas</a>
+                    <a href="#">researchs projects</a>
+                    <a href="#">research publications</a>
+                    <a href="#">academics-collaborations & paternership</a>
+                    <a href="#">goverment- collaborations &</a>
+                    <a href="#">paternerships</a>
+                </div>
+                <div class="column">
+                    <h4>research & innovation</h4>
+                    <a href="#">graduations reserch directorate</a>
+                    <a href="#">grades administrations & suppoerts</a>
+                    <a href="#">units </a>
+                    <a href="#">mak sweden researchs</a>
+                    <a href="#">cooperations/a>
+                    <a href="#">rotery peaces centers (MAK-RPC)</a>
+                    <a href="#">research & innovation funds (RIF)</a>
+                    <a href="#">risilentafrica netwark (RAN)</a>
+                    <a href="#">innovations hubs</a>
+                </div>
+            </div>
+        <li><a href="#">ABOUT</a></li>
+        <li><a href="#">NEW</a></li>
+        
+          <li><a href="#" class="donate-btn">Donate</a></li>
+          <li class="search-icon" id="searchBtn"><i class="bi bi-search"></i></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <img src="Makerere-Main.jpg" alt="makere" width="100%">
+    <img src="Makerere-CHUSS.jpg" alt="makere" width="100%">
+    <img src="Makerere-NCHE.jpg" alt="makere" width="100%">
+    <img src="Makerere-Press.jpg" alt="makere" width="100%">
+    <div class="hero-overlay">
+    <div class="hero-content">
+      <div class="box">
+      <h1>Dr. Khanakwa Honored for Steering Record 18 PhD Candidates</h1>
+      <p>DVC (AA) Prof. Sarah Ssali hands over the award to Dr. Pamela Khanakwa during CHUSS End of Year Party.</p>
+      <a href="#" class="cta">Read the Story</a>
+    </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- ================= QUICK ACCESS ================= -->
+  <section class="quick-access">
+    <div class="qa-left">
+      <div class="qa-bubble">
+        Use the choices below to gain immediate access to the resources you require.<br>
+        Example: I am a/an prospective student seeking related information on admission.
+      </div>
+
+      <h2>I am a/an... <span style="color:red;">Select Option</span></h2>
+      <select>
+        <option>Select Option</option>
+        <option>Prospective Student</option>
+        <option>Current Student</option>
+        <option>Staff Member</option>
+        <option>Researcher</option>
+        <option>Alumni</option>
+        <option>Visitor</option>
+        <option>Partner</option>
+      </select>
+
+      <button>Show me the information</button>
+
+      <p>
+        While this is not a comprehensive list of the options you require, it is based on the most requested for information from Makerere University. Unable to find what you’re looking for? Let us know.
+      </p>
+    </div>
+
+    <div class="qa-right">
+      <div class="qa-card join">
+        Join
+        <img src="https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=400&q=80" alt="Join">
+      </div>
+      <div class="qa-card visit">
+        Visit
+        <img src="https://images.unsplash.com/photo-1596495577886-d920f1fb7238?auto=format&fit=crop&w=400&q=80" alt="Visit">
+      </div>
+      <div class="qa-card give">
+        Give
+        <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=400&q=80" alt="Give">
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= NEWS ================= -->
+  <section class="section">
+    <h1 style="text-align: center;color: #c41212;"  >Happening around Campus</h1><br>
+    <p style="text-align: center;">Stories about people, research, innovations, opportunities across the Makerere<br> University Community</p><br><br><br><br><br><br>
+    <div class="section-header">
+      <h2 style="color: #c41212;">Latest News</h2>
+      <a href="#">View all news</a>
+    </div>
+
+      <div class="news-card">
+
+        <div class="news-content1">
+          <h2>New Undergraduate Programs Launched</h2>
+          <p>The university has introduced new programs to meet the growing demand for digital and entrepreneurial skills.</p>
+          <a href="#">Read more →</a>
+        </div><br><br>
+        <div class="news-content2">
+          <h3>Graduation Ceremony Set for December</h3>
+          <p>29 January, 2026 Course<br> Announcement: Certificate in Water, Sanitation and Hygiene (CWASH) – 2026.</p>
+          <a href="#">Read more →</a>
+        </div>  
+        </div><br><br>
+
+      
+    
+ <!-- Campus Stories Section -->
+ <section class="campus-stories">
+  <div class="container">
+      <div class="section-title">
+          <h3 style="color: #c41212;">Happening around Campus</h3>
+          <p>Stories about people, research, innovations, opportunities across the Makerere University Community</p>
+      </div>
+      
+      <div class="stories-grid">
+          <div class="story-card" style="background-image: url('https://mak.ac.ug/sites/default/files/styles/webp/public/2026-02/Makerere-CHS-New-Mulago-Hill-Complex-Aerial-1024x575.jpg.webp?itok=BxnQs66J');">
+              <div class="story-overlay">
+                  <div class="story-date">2 February, 2026</div>
+                  <h4 class="story-title">Call For Applications: MakNCD Masters and PhD Training Opportunities</h4>
+              </div>
+          </div>
+          
+          <div class="story-card" style="background-image: url('https://mak.ac.ug/sites/default/files/styles/webp/public/2026-01/Makerere-SPH-CWASH-Graduands-July2025-1024x588.jpg.webp?itok=t2GaaC31');">
+              <div class="story-overlay">
+                  <div class="story-date">29 January, 2026</div>
+                  <h4 class="story-title">Course Announcement: Certificate in Water, Sanitation and Hygiene (CWASH) – 2026</h4>
+              </div>
+          </div>
+      </div>
+      
+      <div class="news-articles">
+          <div class="article-card">
+              <div class="article-img" style="background-image: url('https://mak.ac.ug/sites/default/files/styles/largest_scale/public/2026-01/Makerere-Press-Statement-76th-Graduation-28thJan2026-Transcripts-Handover-1024x683.jpg?itok=YFt59bak');"></div>
+              <div class="article-content">
+                  <div class="article-date">28 January, 2026</div>
+                  <h4 class="article-title" style="color: #c41212;">Press Statement: Makerere 76th Graduation Ceremony</h4>
+                  <a href="#" class="read-more" style="color: #0a9444;">Continue Reading → <i class="fas fa-arrow-right"></i></a>
+              </div>
+          </div>
+          
+          <div class="article-card">
+              <div class="article-img" style="background-image: url('https://mak.ac.ug/sites/default/files/styles/largest_scale/public/2026-01/Makerere-Main-Building-CHUSS-St-Francis-St-Augustine-CAES-Aerial-June-2025-1024x683.jpg?itok=qheKE-Z7');"></div>
+              <div class="article-content">
+                  <div class="article-date">27 January, 2026</div>
+                  <h4 class="article-title" style="color: #c41212;">Re-Advert for the Position of the Second Deputy Vice Chancellor</h4>
+                  <a href="#" class="read-more" style="color: #0a9444;">Continue Reading  →<i class="fas fa-arrow-right"></i></a>
+              </div>
+          </div>
+          
+          <div class="article-card">
+              <div class="article-img" style="background-image: url('https://mak.ac.ug/sites/default/files/styles/largest_scale/public/2026-01/Makerere-St-Francis-Main-Bdg-CAES-JICA-Chemistry-Mathematics-Statistics-Main-Lib-YL-CTF-CoBAMS-EPRC-IGDS-Aerial-June-2025-1024x683.jpg?itok=DomL-F-X');"></div>
+              <div class="article-content">
+                  <div class="article-date">27 January, 2026</div>
+                  <h4 class="article-title" style="color: #c41212;">Press Statement: Makerere University Congratulates Former Staff and Students</h4>
+                  <a href="#" class="read-more" style="color: #0a9444;">Continue Reading →<i class="fas fa-arrow-right"></i></a>
+              </div>
+          </div>
+      </div>
+      
+      <div class="text-center">
+          <a href="#" class="read-more" style="color: #0a9444; ">View more stories from Makerere University → </a>
+      </div>
+  </div>
+</section>
+
+<!-- Events Section -->
+<section class="events-section">
+  <div class="container">
+      <div class="section-title">
+          <h3 style="color: #c41212;">Upcoming Events & Activities</h3>
+          <p>View more upcoming events at our <a href="#" style="color: var(--mak-green); font-weight: 600;">Events Portal</a></p>
+      </div>
+      
+      <div class="events-wrapper">
+          <div class="main-event">
+              <div class="main-event-img" style="background-image: url('https://mak.ac.ug/sites/default/files/2026-01/Erisa_2026.jpg');"></div>
+              <div class="main-event-content">
+                  <div class="event-date">
+                      <span class="event-day">05</span>
+                      <span class="event-month">Feb</span>
+                  </div>
+                  <div class="event-category" style="color: var(--mak-green); font-weight: 600; margin-bottom: 10px;">Hybrid (Physical & Virtual)</div>
+                  <h4 class="event-title">PhD Public Defense by Mr. Erisa Walubo</h4>
+                  <p class="event-venue" style="color: var(--text-light); margin-bottom: 20px;">AVU Conference Room</p>
+                  <a href="#" class="read-more">View Details <i class="fas fa-arrow-right"></i></a>
+              </div>
+          </div>
+          
+          <div class="event-list">
+              <div class="event-item">
+                  <div class="d-flex align-items-center">
+                      <div class="event-date-small" style="margin-right: 15px;">
+                          <div style="font-size: 20px; font-weight: 700; color: var(--mak-green);">06</div>
+                          <div style="font-size: 14px; font-weight: 600; color: var(--mak-green);">Feb</div>
+                      </div>
+                      <div>
+                          <div style="color: var(--mak-green); font-size: 14px; font-weight: 600; margin-bottom: 5px;">Physical</div>
+                          <h5 style="font-size: 16px; font-weight: 600;">PhD Defence: Ms. Masitula Namugenyi</h5>
+                          <p style="font-size: 14px; color: var(--text-light);">The CHUSS Smart Room, Makerere University.</p>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="event-item">
+                  <div class="d-flex align-items-center">
+                      <div class="event-date-small" style="margin-right: 15px;">
+                          <div style="font-size: 20px; font-weight: 700; color: var(--mak-green);">07</div>
+                          <div style="font-size: 14px; font-weight: 600; color: var(--mak-green);">Feb</div>
+                      </div>
+                      <div>
+                          <div style="color: var(--mak-green); font-size: 14px; font-weight: 600; margin-bottom: 5px;">Physical</div>
+                          <h5 style="font-size: 16px; font-weight: 600;">CEDAT Community outreach and Cleanup</h5>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="event-item">
+                  <div class="d-flex align-items-center">
+                      <div class="event-date-small" style="margin-right: 15px;">
+                          <div style="font-size: 20px; font-weight: 700; color: var(--mak-green);">12</div>
+                          <div style="font-size: 14px; font-weight: 600; color: var(--mak-green);">Feb</div>
+                      </div>
+                      <div>
+                          <div style="color: var(--mak-green); font-size: 14px; font-weight: 600; margin-bottom: 5px;">Hybrid (Physical & Virtual)</div>
+                          <h5 style="font-size: 16px; font-weight: 600;">Inaugural African Symposium on Natural Capital Accounting</h5>
+                          <p style="font-size: 14px; color: var(--text-light);">Main Hall and Freedom Square, Makerere University.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</section>
+
+<!-- Research Section -->
+<section class="research-section">
+  <div class="container">
+      <div class="section-title">
+          <h3 style="color: #c41212;">Research & Innovation</h3>
+          <p>Articles about Research & Innovation @ Makerere University | <a href="#" style="color: var(--mak-green); font-weight: 600;">More articles</a></p>
+      </div>
+      
+      <div class="research-grid">
+          <div class="research-card">
+              <span class="research-category">Health</span>
+              <h4 class="research-title">Call For Applications: MakNCD Masters and PhD Training Opportunities</h4>
+              <a href="#" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="research-card">
+              <span class="research-category">Natural Sciences</span>
+              <h4 class="research-title">Enhancing Data Quality: NutriFishPlus Research Assistants Retooled</h4>
+              <a href="#" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="research-card">
+              <span class="research-category">Innovation</span>
+              <h4 class="research-title">Call For Applications: Annual Innovation Commercialisation Award</h4>
+              <a href="#" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="research-card">
+              <span class="research-category">Research</span>
+              <h4 class="research-title">International Fellows Recruitment – Wellcome Sanger Institute</h4>
+              <a href="#" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="research-card">
+              <span class="research-category">Research</span>
+              <h4 class="research-title">Makerere University Launches Knowledge-Sharing Platform</h4>
+              <a href="#" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+          </div>
+          
+          <div class="research-card">
+              <span class="research-category">Business & Management</span>
+              <h4 class="research-title">Makerere University CoBAMS Staff celebrate 2025 achievements</h4>
+              <a href="#" class="read-more">Continue Reading <i class="fas fa-arrow-right"></i></a>
+          </div>
+      </div>
+  </div>
+</section>
+</main>
+
+<!-- Footer -->
+<footer>
+  <div class="container">
+      <div class="footer-top">
+          <div class="row">
+              <div class="col" style="flex: 0 0 33.333%; max-width: 33.333%;">
+                  <div class="footer-column">
+                      <h6>Contact Information</h6>
+                      <div class="footer-links">
+                          <p>P. O. Box 7062<br>Kampala, Uganda</p>
+                          <p>Visit us @ Main Campus<br>Makerere Hill Road</p>
+                      </div>
+                  </div>
+              </div>
+              
+              <div class="col" style="flex: 0 0 22%; max-width: 22%;">
+                  <div class="footer-column">
+                      <h6>Links</h6>
+                      <ul class="footer-links">
+                          <li><a href="#">Get in Touch</a></li>
+                          <li><a href="#">Upcoming Events</a></li>
+                          <li><a href="#">Jobs & Careers</a></li>
+                          <li><a href="#">Campus Map</a></li>
+                          <li><a href="#">Tenders</a></li>
+                          <li><a href="#">Emergency Contacts</a></li>
+                      </ul>
+                  </div>
+              </div>
+              
+              <div class="col" style="flex: 0 0 22%; max-width: 22%;">
+                  <div class="footer-column">
+                      <h6>About Mak</h6>
+                      <ul class="footer-links">
+                          <li><a href="#">Overview</a></li>
+                          <li><a href="#">Facts & Figures</a></li>
+                          <li><a href="#">Visit Makerere</a></li>
+                          <li><a href="#">Alumni</a></li>
+                          <li><a href="#">100 Years Anniversary</a></li>
+                          <li><a href="#">History Timeline</a></li>
+                      </ul>
+                  </div>
+              </div>
+              
+              <div class="col" style="flex: 0 0 22%; max-width: 22%;">
+                  <div class="footer-column">
+                      <h6>Admission</h6>
+                      <ul class="footer-links">
+                          <li><a href="#">Admissions Lists</a></li>
+                          <li><a href="#">How to Apply</a></li>
+                          <li><a href="#">Courses Listings</a></li>
+                          <li><a href="#">Fees & Payment</a></li>
+                          <li><a href="#">International Students</a></li>
+                          <li><a href="#">Scholarships</a></li>
+                          <li><a href="#">Learning Online</a></li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
+      </div>
+      
+      <div class="footer-bottom">
+          <div class="copyright">
+              Copyright @2025 Makerere University
+          </div>
+          
+          <ul class="footer-nav">
+              <li><a href="#">Accessibility</a></li>
+              <li><a href="#">Privacy & Terms</a></li>
+          </ul>
+          
+          <div class="social-icons">
+              <a href="#" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" title="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+              <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" title="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+      </div>
+  </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button class="scroll-top" id="scroll-top">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<script>
+  // Mobile menu toggle
+  const menuToggle = document.getElementById('menu-toggle');
+  const mainNav = document.getElementById('main-nav');
+  
+  menuToggle.addEventListener('click', () => {
+      mainNav.classList.toggle('active');
+      menuToggle.querySelector('i').classList.toggle('fa-bars');
+      menuToggle.querySelector('i').classList.toggle('fa-times');
+  });
+  
+  // Scroll to top button
+  const scrollTopBtn = document.getElementById('scroll-top');
+  
+  window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+          scrollTopBtn.style.display = 'flex';
+      } else {
+          scrollTopBtn.style.display = 'none';
+      }
+  });
+  
+  scrollTopBtn.addEventListener('click', () => {
+      window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+      });
+  });
+  
+  // Close mobile menu when clicking a link
+  const navLinks = document.querySelectorAll('.nav-link');
+  navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+          mainNav.classList.remove('active');
+          menuToggle.querySelector('i').classList.add('fa-bars');
+          menuToggle.querySelector('i').classList.remove('fa-times');
+      });
+  });
+</script>
+</body>
+</html>
